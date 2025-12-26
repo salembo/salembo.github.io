@@ -1,0 +1,18 @@
+title: Ana Maria Ruiz 
+description: Data Engineer | Tech Entusiast 
+theme: minima
+url: "https://salembo.github.io"
+
+# Navegación
+header_pages:
+  - about.md
+  - projects/index.md
+  - blog/index.md
+
+# Redes sociales
+github_username: salembo
+linkedin_username: anamariaruizruiz
+
+# Configuración de Jekyll
+markdown: kramdown
+permalink: /:title/
