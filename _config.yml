@@ -1,18 +1,48 @@
-title: Ana Maria Ruiz 
-description: Data Engineer | Tech Entusiast 
+title: Ana Maria Ruiz
+description: Data Engineer | Tech Enthusiast
+author: Ana Maria Ruiz
+lang: en
 theme: minima
 url: "https://salembo.github.io"
 
-# Navegación
+# Menu at the top of every page
 header_pages:
   - about.md
-  - projects/index.md
-  - blog/index.md
+  - projects.md
+  - blog.md
 
-# Redes sociales
+# Social links (shown in the footer)
 github_username: salembo
 linkedin_username: anamariaruizruiz
 
-# Configuración de Jekyll
+# Blog: RSS feed and SEO tags (both are supported by GitHub Pages)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+minima:
+  date_format: "%B %-d, %Y"
+
+# Projects live in _projects/, one Markdown file per project
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      permalink: /blog/:year/:month/:title/
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+
 markdown: kramdown
-permalink: /:title/
+
+exclude:
+  - README.md

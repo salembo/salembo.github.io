@@ -1,30 +1,49 @@
 ---
-layout: home
-title: Inicio
+layout: default
+title: Home
 ---
 
-# ¡Hi! I am Ana Maria Ruiz 👋
-
-I am a data engineer and tech entusiast passionate about community building, and diving into complex problems. In my spare time I enjoy paper crafting or learning about universal history.  I have experience on SQL, Snowflake and currently learning more about AWS, dbt and Rust. 
+<section class="hero">
+  <img class="hero-photo" src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Ana Maria Ruiz">
+  <div>
+    <p class="kicker">$ whoami</p>
+    <h1>Hi! I am Ana Maria Ruiz 👋</h1>
+    <p class="hero-subtitle">Data engineer and tech enthusiast, passionate about community building and diving into complex problems.</p>
+    <p class="hero-links">
+      <a class="btn" href="{{ '/projects/' | relative_url }}">See my projects</a>
+      <a class="btn btn-secondary" href="{{ '/blog/' | relative_url }}">Read the blog</a>
+    </p>
+  </div>
+</section>
 
 ## My tech work
 
-- 🚀 I am a data engineer with expertise in SQL, Snowflake and AWS.
-- 💡 Currently volunteering using my tech skills. 
-- 🌱 Learning more about AWS, and starting with Rust. Dbt coming soon.
+-  Data engineer with experience in SQL, Snowflake and AWS.
+-  Currently volunteering with my tech skills.
+-  Learning more about AWS and starting with Rust.
 
-## My projects
+In my spare time I enjoy paper crafting and learning about universal history.
 
-{% for project in site.projects limit:3 %}
-- [{{ project.title }}]({{ project.url }}) - {{ project.description }}
-{% endfor %}
+## Featured projects
 
-[Take a look at all my projects →](/projects)
+<div class="card-grid">
+{%- assign featured = site.projects | sort: "order" -%}
+{%- for project in featured limit:3 -%}
+  {%- include project-card.html project=project -%}
+{%- endfor -%}
+</div>
+
+[cd ~/projects →]({{ '/projects/' | relative_url }}){: .more-link}
 
 ## Latest posts
 
-{% for post in site.posts limit:3 %}
-- [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%B %d, %Y" }}
-{% endfor %}
+<ul class="post-list">
+{%- for post in site.posts limit:3 -%}
+  <li>
+    <span class="post-meta">{{ post.date | date: site.minima.date_format }}</span>
+    <h3><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+  </li>
+{%- endfor -%}
+</ul>
 
-[Take a look at all my posts →](/blog)
+[cd ~/blog →]({{ '/blog/' | relative_url }}){: .more-link}

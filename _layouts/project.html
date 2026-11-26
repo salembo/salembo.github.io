@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    {%- if page.description -%}
+    <p class="post-subtitle">{{ page.description }}</p>
+    {%- endif -%}
+    {%- if page.tech -%}
+    <p class="tags">{% for t in page.tech %}<span class="tag">{{ t }}</span>{% endfor %}</p>
+    {%- endif -%}
+    <p class="card-links">
+      {%- if page.repo -%}<a class="btn" href="{{ page.repo }}">GitHub repository</a>{%- endif -%}
+      {%- if page.demo %} <a class="btn btn-secondary" href="{{ page.demo }}">Live demo</a>{%- endif -%}
+    </p>
+  </header>
+
+  {%- if page.image -%}
+  <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}">
+  {%- endif -%}
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <p><a href="{{ '/projects/' | relative_url }}">← Back to projects</a></p>
+</article>
